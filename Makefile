@@ -110,7 +110,7 @@ install:	$(ALL)
 	install -m 0755 -d                             $(DESTDIR)$(mandir)/man3
 	install -m 0644 p*.3                           $(DESTDIR)$(mandir)/man3
 ifeq ($(DESTDIR),)
-	ldconfig
+	ldconfig /etc/ld.so.conf.d
 endif
 
 uninstall:
@@ -132,7 +132,7 @@ uninstall:
 	rm -f $(DESTDIR)$(mandir)/man1/libpigpio*.1
 	rm -f $(DESTDIR)$(mandir)/man3/pig*.3
 ifeq ($(DESTDIR),)
-	ldconfig
+	ldconfig /etc/ld.so.conf.d
 endif
 
 $(LIB1):	$(OBJ1)
